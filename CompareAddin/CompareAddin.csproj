@@ -103,12 +103,32 @@
                     AssemblyName = "System.Windows.Forms"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll"
                 />
+                <Reference
+                    Name = "System.Drawing"
+                    AssemblyName = "System.Drawing"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
             </References>
         </Build>
         <Files>
             <Include>
                 <File
                     RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "CompareOptions.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "CompareOptions.resx"
+                    DependentUpon = "CompareOptions.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "CompareThread.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -121,6 +141,16 @@
                     RelPath = "OutlookCompare.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ProgressDialog.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ProgressDialog.resx"
+                    DependentUpon = "ProgressDialog.cs"
+                    BuildAction = "EmbeddedResource"
                 />
             </Include>
         </Files>

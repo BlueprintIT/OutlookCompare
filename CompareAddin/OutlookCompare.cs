@@ -2,7 +2,7 @@
  * $LastChangedBy$
  * $HeadURL$
  * $Date$
- * $Revision$
+ * $Revision: 6 $
  */
 
 using System;
@@ -14,6 +14,7 @@ namespace CompareAddin
 {
 	public class OutlookCompare
 	{
+		private Application application;
 		private IList objectCache = new ArrayList();
 
 		public OutlookCompare(Connect connect)
@@ -24,6 +25,7 @@ namespace CompareAddin
 
 		private void connect_OutlookStarted(Application application)
 		{
+			this.application=application;
 			foreach (Explorer explorer in application.Explorers)
 			{
 				CreateMenu(explorer);
@@ -32,7 +34,7 @@ namespace CompareAddin
 
 		private void connect_OutlookShuttingDown(Application application)
 		{
-
+			this.application=null;
 		}
 
 		private void CreateMenu(Explorer explorer)
@@ -51,7 +53,7 @@ namespace CompareAddin
 
 		private void comparemenu_Click(CommandBarButton Ctrl, ref bool CancelDefault)
 		{
-			System.Windows.Forms.MessageBox.Show("Hello");
+			new CompareThread(application);
 		}
 	}
 }
