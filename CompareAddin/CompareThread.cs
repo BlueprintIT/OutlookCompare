@@ -17,7 +17,7 @@ namespace CompareAddin
 	{
 		private string[] propertyList = 
 			{
-				"Business2TelephoneNumber","BusinessAddress",
+				"Business2TelephoneNumber",
 				"FileAs","FullName","HomeAddress","HomeFaxNumber",
 				"Email1Address","Email2Address","HomeTelephoneNumber",
 				"Email1DisplayName","Email2DisplayName","JobTitle",
@@ -26,10 +26,10 @@ namespace CompareAddin
 				"BusinessTelephoneNumber","CallbackTelephoneNumber","OtherAddress",
 				"OtherFaxNumber","OtherTelephoneNumber","PrimaryTelephoneNumber",
 				"CarTelephoneNumber","Department","Home2TelephoneNumber",
-				"CompanyMainTelephoneNumber","CompanyName","FullNameAndCompany",
+				"CompanyMainTelephoneNumber","FullNameAndCompany",
 				"CompanyAndFullName","CompanyLastFirstNoSpace","CompanyLastFirstSpaceOnly",
-				"Account","Actions","Anniversary",
-				"Application","AssistantName",
+				"BusinessAddress","CompanyName",
+				"Account","Actions","Anniversary","AssistantName",
 				"AssistantTelephoneNumber","Attachments",
 				"AutoResolvedWinner","BillingInformation","Birthday",//"Body",
 				"Categories","Children","Class","Companies",
