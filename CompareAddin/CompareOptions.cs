@@ -42,6 +42,8 @@ namespace CompareAddin
 		{
 			InitializeComponent();
 			this.ns=ns;
+			cmbType.SelectedIndex=0;
+			cmbField.SelectedIndex=1;
 		}
 
 		public bool CompareMultipleFolders
@@ -49,6 +51,14 @@ namespace CompareAddin
 			get
 			{
 				return radioMultiFolder.Checked;
+			}
+		}
+
+		public string Field
+		{
+			get
+			{
+				return (string)cmbField.SelectedItem;
 			}
 		}
 
@@ -204,7 +214,9 @@ namespace CompareAddin
 			// 
 			this.cmbField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbField.Items.AddRange(new object[] {
-																									"Email1"});
+																									"Email1Address",
+																									"FileAs",
+																									"FullName"});
 			this.cmbField.Location = new System.Drawing.Point(128, 232);
 			this.cmbField.Name = "cmbField";
 			this.cmbField.Size = new System.Drawing.Size(200, 21);

@@ -100,16 +100,16 @@ namespace CompareAddin
 			this.listItems.Dock = System.Windows.Forms.DockStyle.Left;
 			this.listItems.Location = new System.Drawing.Point(0, 0);
 			this.listItems.Name = "listItems";
-			this.listItems.Size = new System.Drawing.Size(136, 368);
+			this.listItems.Size = new System.Drawing.Size(136, 316);
 			this.listItems.TabIndex = 0;
 			this.listItems.SelectedIndexChanged += new System.EventHandler(this.listItems_SelectedIndexChanged);
 			// 
 			// listDuplicates
 			// 
 			this.listDuplicates.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listDuplicates.Location = new System.Drawing.Point(0, 0);
+			this.listDuplicates.Location = new System.Drawing.Point(139, 0);
 			this.listDuplicates.Name = "listDuplicates";
-			this.listDuplicates.Size = new System.Drawing.Size(544, 368);
+			this.listDuplicates.Size = new System.Drawing.Size(405, 316);
 			this.listDuplicates.TabIndex = 1;
 			this.listDuplicates.DoubleClick += new System.EventHandler(this.listDuplicates_DoubleClick);
 			// 
@@ -123,20 +123,20 @@ namespace CompareAddin
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.listDuplicates);
 			this.panel1.Controls.Add(this.splitter1);
 			this.panel1.Controls.Add(this.listItems);
-			this.panel1.Controls.Add(this.listDuplicates);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(544, 379);
+			this.panel1.Size = new System.Drawing.Size(544, 323);
 			this.panel1.TabIndex = 3;
 			// 
 			// splitter1
 			// 
 			this.splitter1.Location = new System.Drawing.Point(136, 0);
 			this.splitter1.Name = "splitter1";
-			this.splitter1.Size = new System.Drawing.Size(3, 379);
+			this.splitter1.Size = new System.Drawing.Size(3, 323);
 			this.splitter1.TabIndex = 1;
 			this.splitter1.TabStop = false;
 			// 
@@ -153,8 +153,8 @@ namespace CompareAddin
 			// 
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(544, 379);
-			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.panel2);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "CompareResults";
