@@ -31,7 +31,7 @@ namespace CompareAddin
 				"BusinessAddress","CompanyName",
 				"Account","Actions","Anniversary","AssistantName",
 				"AssistantTelephoneNumber","Attachments",
-				"AutoResolvedWinner","BillingInformation","Birthday",//"Body",
+				"AutoResolvedWinner","BillingInformation","Birthday","Body",
 				"Categories","Children","Class","Companies",
 				"ComputerNetworkName","Conflicts","ConversationIndex",
 				"ConversationTopic","CustomerID",
@@ -194,16 +194,32 @@ namespace CompareAddin
 					progress.Close();
 					progress.Dispose();
 
-					MessageBox.Show("Found "+redundant.Count+" exact duplicates");
+					if (MessageBox.Show("Found "+redundant.Count+" exact duplicates.\nWould you like to delete them?","Duplicates found",MessageBoxButtons.YesNo)==DialogResult.Yes)
+					{
+						progress = new ProgressDialog("Deleting Duplicates","Deleting duplicate contacts, please wait.");
+						progress.Value=0;
+						progress.Maximum=redundant.Count;
+						progress.Show();
 
-					IDictionaryEnumerator enumer = badprop.GetEnumerator();
+						foreach (ContactItem contact in redundant)
+						{
+							contact.Delete();
+							progress.Value++;
+						}
+
+						progress.Hide();
+						progress.Close();
+						progress.Dispose();
+					}
+
+					/*IDictionaryEnumerator enumer = badprop.GetEnumerator();
 					while(enumer.MoveNext())
 					{
 						MessageBox.Show(enumer.Key+" "+enumer.Value);
-					}
+					}*/
 
-					CompareResults results = new CompareResults(duplicateList,cache,props);
-					results.Show();
+					/*CompareResults results = new CompareResults(duplicateList,cache,props);
+					results.Show();*/
 				}
 				catch (System.Exception e)
 				{

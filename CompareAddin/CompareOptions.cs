@@ -141,6 +141,7 @@ namespace CompareAddin
 			// 
 			// btnFolder2
 			// 
+			this.btnFolder2.Enabled = false;
 			this.btnFolder2.Location = new System.Drawing.Point(344, 144);
 			this.btnFolder2.Name = "btnFolder2";
 			this.btnFolder2.TabIndex = 3;
@@ -165,20 +166,21 @@ namespace CompareAddin
 			// 
 			// radioSingleFolder
 			// 
+			this.radioSingleFolder.Checked = true;
 			this.radioSingleFolder.Location = new System.Drawing.Point(32, 16);
 			this.radioSingleFolder.Name = "radioSingleFolder";
 			this.radioSingleFolder.Size = new System.Drawing.Size(208, 24);
 			this.radioSingleFolder.TabIndex = 6;
+			this.radioSingleFolder.TabStop = true;
 			this.radioSingleFolder.Text = "Find duplicates within a single folder";
 			// 
 			// radioMultiFolder
 			// 
-			this.radioMultiFolder.Checked = true;
+			this.radioMultiFolder.Enabled = false;
 			this.radioMultiFolder.Location = new System.Drawing.Point(32, 48);
 			this.radioMultiFolder.Name = "radioMultiFolder";
 			this.radioMultiFolder.Size = new System.Drawing.Size(216, 24);
 			this.radioMultiFolder.TabIndex = 7;
-			this.radioMultiFolder.TabStop = true;
 			this.radioMultiFolder.Text = "Find duplicates between two folders";
 			this.radioMultiFolder.CheckedChanged += new System.EventHandler(this.radioMultiFolder_CheckedChanged);
 			// 
