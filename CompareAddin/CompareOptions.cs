@@ -263,6 +263,10 @@ namespace CompareAddin
 			if (radioMultiFolder.Checked)
 			{
 				btnFolder2.Enabled=true;
+				if (folder2==null)
+				{
+					btnCompare.Enabled=false;
+				}
 			}
 			else
 			{

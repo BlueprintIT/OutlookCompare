@@ -95,7 +95,7 @@
                 />
                 <Reference
                     Name = "System.XML"
-                    AssemblyName = "System.XML"
+                    AssemblyName = "System.Xml"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
                 />
                 <Reference
@@ -128,12 +128,27 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
+                    RelPath = "CompareResults.cs"
+                    SubType = "Form"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "CompareResults.resx"
+                    DependentUpon = "CompareResults.cs"
+                    BuildAction = "EmbeddedResource"
+                />
+                <File
                     RelPath = "CompareThread.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
                     RelPath = "Connect.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ItemPropertyHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

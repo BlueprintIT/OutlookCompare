@@ -25,39 +25,13 @@ namespace CompareAddin
 			Run();
 		}
 
-		private UserProperties FetchUserProperties(object obj, OlItemType type)
+		private void DoCompare(IList duplicateList, IDictionary cache, ItemPropertyHandler props, object obj)
 		{
-			if (type==OlItemType.olContactItem)
+			if (props.IsCorrectType(obj))
 			{
-				if (obj is ContactItem)
+				string value = props.FetchIndexProperty(obj);
+				if ((value!=null)&&(value.Length>0))
 				{
-					return ((ContactItem)obj).UserProperties;
-				}
-				else
-				{
-					return null;
-				}
-			}
-			else
-			{
-				return null;
-			}
-		}
-
-		private string Normalise(string value)
-		{
-			return value.Trim().ToLower();
-		}
-
-		private void DoCompare(IList duplicateList, IDictionary cache, object obj, OlItemType type, string property)
-		{
-			UserProperties props = FetchUserProperties(obj,type);
-			if (props!=null)
-			{
-				UserProperty prop = props.Find(property,false);
-				if (prop!=null)
-				{
-					string value = Normalise((string)prop.Value);
 					IList list;
 					if (cache.Contains(value))
 					{
@@ -82,6 +56,8 @@ namespace CompareAddin
 			CompareOptions options = new CompareOptions(application.GetNamespace("MAPI"));
 			if (options.ShowDialog()==DialogResult.OK)
 			{
+				ItemPropertyHandler props = new ItemPropertyHandler(OlItemType.olContactItem,"Email1Address");
+
 				IDictionary cache = new Hashtable();
 				IList duplicateList = new ArrayList();
 
@@ -91,7 +67,7 @@ namespace CompareAddin
 				progress.Show();
 				foreach (object obj in options.Folder1.Items)
 				{
-					DoCompare(duplicateList,cache,obj,OlItemType.olContactItem,"Email1Address");
+					DoCompare(duplicateList,cache,props,obj);
 					progress.Value++;
 				}
 
@@ -101,7 +77,7 @@ namespace CompareAddin
 					progress.Maximum=options.Folder2.Items.Count;
 					foreach (object obj in options.Folder2.Items)
 					{
-						DoCompare(duplicateList,cache,obj,OlItemType.olContactItem,"Email1Address");
+						DoCompare(duplicateList,cache,props,obj);
 						progress.Value++;
 					}
 				}
@@ -109,7 +85,8 @@ namespace CompareAddin
 				progress.Close();
 				progress.Dispose();
 
-				MessageBox.Show("Non-duplicates: "+(cache.Count-duplicateList.Count)+" Duplicates: "+duplicateList.Count);
+				CompareResults results = new CompareResults(duplicateList,cache,props);
+				results.Show();
 			}
 		}
 	}
