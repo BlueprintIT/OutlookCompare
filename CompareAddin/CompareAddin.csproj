@@ -37,7 +37,7 @@
                     NoWarn = ""
                     Optimize = "false"
                     OutputPath = "bin\Debug\"
-                    RegisterForComInterop = "true"
+                    RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
                     WarningLevel = "4"
@@ -73,22 +73,6 @@
                     AssemblyName = "Extensibility"
                 />
                 <Reference
-                    Name = "Microsoft.Office.Core"
-                    Guid = "{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}"
-                    VersionMajor = "2"
-                    VersionMinor = "3"
-                    Lcid = "0"
-                    WrapperTool = "primary"
-                />
-                <Reference
-                    Name = "Outlook"
-                    Guid = "{00062FFF-0000-0000-C000-000000000046}"
-                    VersionMajor = "9"
-                    VersionMinor = "2"
-                    Lcid = "0"
-                    WrapperTool = "primary"
-                />
-                <Reference
                     Name = "System.Data"
                     AssemblyName = "System.Data"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
@@ -107,6 +91,16 @@
                     Name = "System.Drawing"
                     AssemblyName = "System.Drawing"
                     HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll"
+                />
+                <Reference
+                    Name = "office"
+                    AssemblyName = "office"
+                    HintPath = "E:\Downloads\oxppia\office.dll"
+                />
+                <Reference
+                    Name = "Microsoft.Office.Interop.Outlook"
+                    AssemblyName = "Microsoft.Office.Interop.Outlook"
+                    HintPath = "E:\Downloads\oxppia\Microsoft.Office.Interop.Outlook.dll"
                 />
             </References>
         </Build>
